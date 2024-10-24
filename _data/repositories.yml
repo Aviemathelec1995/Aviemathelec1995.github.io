@@ -1,14 +1,11 @@
 github_users:
-  - torvalds
-  - alshedivat
+  # - Aviemathelec1995
+  
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - Aviemathelec1995/PMBPQM_BSCQ
+  - Aviemathelec1995/QSCpolar
+  - Aviemathelec1995/CQ-Polar-BPQM
+  
