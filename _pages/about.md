@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: <a href='#'>Affiliations</a>. <a href="https://scholars.duke.edu/person/avijit.mandal"> Duke University </a>
 
