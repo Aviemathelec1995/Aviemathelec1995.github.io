@@ -6,11 +6,11 @@ subtitle: <a href='#'>Affiliations</a>. <a href="https://scholars.duke.edu/perso
 
 profile:
   align: right
-  image: prof_pic1.jpg
+  image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Gross Hall</p>
-    <p>Duke University, USA</p>
+    <p>Durham, NC, USA</p>
+   
    
 
 news: true # includes a list of news items
