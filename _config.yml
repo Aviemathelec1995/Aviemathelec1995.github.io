@@ -249,6 +249,7 @@ exclude:
   #- _pages/teaching.md
   - _pages/projects.md
   - _pages/dropdown.md
+  - _pages/fun_stuff.md
   - purgecss.config.js
   - README.md
   - readme_preview/

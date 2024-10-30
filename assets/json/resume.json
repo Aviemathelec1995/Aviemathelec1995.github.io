@@ -19,7 +19,7 @@
   "education": [
     {
       "institution": "Duke University",
-      "location": "Durham, North Carolina, USA",
+      "location": "Durham, USA",
       "url": "https://duke.edu/",
       "startDate": "2022-01-06",
       "area":"Electrical and Computer Engineering",
@@ -111,9 +111,7 @@
       ]
     }
   ],
-  "references": [
-   {}
-  ],
+  
   "projects": [
     {
      
