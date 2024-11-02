@@ -7,9 +7,9 @@ subtitle: <a href='#'>Affiliations</a>. <a href="https://scholars.duke.edu/perso
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: false # crops the image to make it circular  # <p>Durham, NC, USA</p>
   more_info: >
-    <p>Durham, NC, USA</p>
+  
    
    
 
