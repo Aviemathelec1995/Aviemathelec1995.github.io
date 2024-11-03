@@ -58,24 +58,7 @@
       ]
     }
   ],
-  "languages": [
-   
-   {
-      "language": "English",
-      "fluency": "Fluent",
-      "icon": ""
-    },
-    {
-      "language": "Bengali",
-      "fluency": "Fluent",
-      "icon": ""
-    },
-    {
-      "language": "Hindi",
-      "fluency": "Fluent",
-      "icon": ""
-    }
-  ],
+  
   "interests": [
     {
       "name": "Classical",
