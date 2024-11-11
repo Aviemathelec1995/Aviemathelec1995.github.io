@@ -15,6 +15,6 @@ In this research, we extend the classical belief propagation algorithm to a meth
 <br> We deveoped PM-BPQM based polar decoder over BSCQ channels and provided its performance.
 
 <br> Here are the list of papers which gives more insight on this topic
-1. Belief propagation with quantum messages for symmetric classical-quantum channels, <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9965841&casa_token=rrAb66bcGyAAAAAA:ONdQD5ABHlhaqYutwCyemd_EaYhjQmHtEbuivabDvD_K52Ye5irCj1TlGv0W0FIh0YZELtiCiv_G"> ITW 2022</a> <a href="https://arxiv.org/abs/2207.04984"> (arxiv version)</a><br> 
-2. Belief-propagation with quantum messages for polar codes on classical-quantum channels, <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10206723&casa_token=jyA-lYuZJEkAAAAA:mlv_3snbdg-TErAr4XSb4pzuQ5WPrX0WIyxYhq5BYubuyBwYbEFMJRce7MKL4i0NPjkhv5Q8DE8d"> ISIT 2023 </a> <br>
+1. Belief propagation with quantum messages for symmetric classical-quantum channels, <a href="https://ieeexplore.ieee.org/abstract/document/9965841"> ITW 2022</a> <a href="https://arxiv.org/abs/2207.04984"> (arxiv version)</a><br> 
+2. Belief-propagation with quantum messages for polar codes on classical-quantum channels, <a href="https://ieeexplore.ieee.org/abstract/document/10206723"> ISIT 2023 </a> <br>
 3. Polar Codes for CQ Channels: Decoding via Belief-Propagation with Quantum Messages <a href="https://arxiv.org/pdf/2401.07167"> (arxiv preprint) </a>.
