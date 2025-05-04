@@ -17,7 +17,7 @@ news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
-Hello! I am Avijit. I am a 3<sup>rd</sup> year PhD student at Duke University, USA. I work in the intersection of classical and quantum information and coding theory. 
+Hello! I am Avijit. I am a 4<sup>th</sup> year PhD student at Duke University, USA. I work in the intersection of classical and quantum information and coding theory. 
 At Duke, I am fortunate to work with <a href="http://pfister.ee.duke.edu/"> Dr. Henry Pfister  </a>.
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder. -->

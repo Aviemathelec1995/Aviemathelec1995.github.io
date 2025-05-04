@@ -24,7 +24,7 @@ In this research, we extend the classical belief propagation algorithm to a meth
 3. Polar Codes for CQ Channels: Decoding via Belief-Propagation with Quantum Messages <a href="https://arxiv.org/pdf/2401.07167"> (arxiv preprint) </a>. 
 
 <br> Here are the relevant repositories 
-1. Finding thresholds for regular LPDC codes over BSCQ channels - <a href="https://github.com/Aviemathelec1995/PMBPQM_BSCQ"> PMBPQM_BSCQ </a>
+1. Finding thresholds for regular LDPC codes over BSCQ channels - <a href="https://github.com/Aviemathelec1995/PMBPQM_BSCQ"> PMBPQM_BSCQ </a>
 2. Simulating Polar Decoder over BSCQ channels - <a href="https://github.com/Aviemathelec1995/CQ-Polar-BPQM"> CQ-Polar-BPQM </a>.
 
 <div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;"> Quantum State Compression with Polar Codes</div>
