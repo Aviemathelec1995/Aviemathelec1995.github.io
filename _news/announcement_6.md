@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Excited to join <a href="https://quantumai.google"> Google Quantum AI, Los Angeles, CA </a> as a Student Researcher for Summer 25.
+Spent wonderful summer at <a href="https://quantumai.google"> Google Quantum AI, Los Angeles, CA </a> as a Student Researcher for Summer 25.
