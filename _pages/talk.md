@@ -6,6 +6,12 @@ description: Here are the slides for the talks that I have presented so far
 nav: true
 nav_order: 6
 ---
+<div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;">2025</div>
+<hr style="border: 1px solid #ccc; margin-bottom: 15px;">
+
+**Jun 2025, In-Person:** Reed-Muller Codes on CQ Channels via a New Correlation Bound for Quantum Observables, ISIT <a href="https://drive.google.com/file/d/1oTTM4t_5aVspMPRv6sTNHq1f1-BPWPYD/view?usp=sharing"> (Slides) </a>.<br>
+<br>
+
 <div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;">2024</div>
 <hr style="border: 1px solid #ccc; margin-bottom: 15px;">
 
