@@ -53,6 +53,8 @@
         "Scikit-learn",
         "Numba",
         "Scipy",
+        "CVXPY",
+        "Cython",
         "Jax"
 
       ]
@@ -91,6 +93,17 @@
         "Theoretical Machine Learning",
         "Information Theoretic Bounds in ML",
         "Deep Neural Networks"
+      ]
+    },
+    {
+      "name": "Miscellaneous",
+      "icon": "fa-solid fa-tag",
+      "keywords": [
+        
+        "Representation Theory of Finite Groups",
+        "Semidefinite Programming",
+        "Inferenece Algorithms"
+
       ]
     }
   ]
