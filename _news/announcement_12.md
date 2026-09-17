@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Presented a talk at IBM Research on recent progress on decoding classical codes on classical quantum channels  <a href="https://drive.google.com/drive/folders/1jY1EQZSIcSiRhTrQH2qFghDopHz3mnA2"> Slides</a>
+Presented a talk at IBM Research on recent progress on decoding classical codes on classical quantum channels  <a href="https://drive.google.com/file/d/19V20yZohpZ1Ywr_Cb9vmexE0BQdNUMwN/view?usp=sharing"> Slides</a>
