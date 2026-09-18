@@ -128,7 +128,7 @@ We also prove that the <a href="https://arxiv.org/abs/2604.24633">fine-grained u
 2. Optimization Using Locally-Quantum Decoders, <a href="https://arxiv.org/abs/2604.24633">(arXiv)</a>.
 
 <h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Repository</h3>
-1. Affine-filtering measurement optimization and LDPC decoding simulations - <a href="https://github.com/Aviemathelec1995/Affine_filtering_decoder">Affine_filtering_decoder</a>.
+1. Affine filtering measurement optimization and LDPC decoding simulations - <a href="https://github.com/Aviemathelec1995/Affine_filtering_decoder">Affine_filtering_decoder</a>.
 
 
 <div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;"> Reed-Muller Codes on Classical-Quantum Channels</div>
