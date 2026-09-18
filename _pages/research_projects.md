@@ -23,7 +23,7 @@ Deep-space optical communication is a motivating application. When the received 
 </p>
 Our works extend BPQM and develop rigorous tools for the analysis and design of efficient quantum message-passing algorithms. The main contributions are summarized below.
 <h3 style="clear: both; margin: 26px 0 10px;">Quantum Message Passing for Binary CQ Channels</h3>
-<img src="../assets/img/operational_bpqm.gif" alt="Operational BPQM visualization" width="400" style="float: right; clear: right; max-width: 48%; height: auto; margin: 0 0 18px 22px;">
+<img src="../assets/img/operational_bpqm.gif?v=20260918e" alt="Operational BPQM visualization" width="400" style="float: right; clear: right; max-width: 48%; height: auto; margin: 0 0 18px 22px;">
 <p>
 Density evolution (DE) analyzes the behavior of BP decoding as the code length grows. It tracks the distribution of messages passed along the edges of a factor graph and finds the noise threshold, the largest channel-noise level for which the decoding error approaches zero. <a href="https://arxiv.org/abs/2207.04984">Our work</a> generalized DE equations for BPQM over binary-input symmetric CQ channels and used them to compute noise thresholds for regular LDPC codes. We then used DE to <a href="https://arxiv.org/abs/2401.07167">design polar codes for BPQM decoding</a>, determine their achievable rates, and validate the analysis through decoder simulations.
 </p>
@@ -83,13 +83,13 @@ Consider a max-\(k\)-XORSAT instance specified by a matrix \(B\in\mathbb{F}_2^{m
 </p>
 
 <p>
-In <a href="https://arxiv.org/abs/2604.24633">our work</a>, we develop a locally quantum decoder based on fine-grained unambiguous measurements. For LDPC codes drawn from Gallager’s ensemble, the code symbols are partitioned into disjoint blocks associated with non-overlapping parity checks. We jointly design the error amplitudes and local measurements using these parity-check constraints. For several choices of \(k\) and \(D\), this strategy achieves a larger expected satisfaction fraction than both simulated annealing and Prange’s algorithm. However, we later develop an improved version of Prange’s algorithm, called Turbo Prange, that achieves the same satisfaction fraction, ruling out a quantum advantage from this decoding strategy.
+In <a href="https://arxiv.org/abs/2604.24633">our work</a>, we develop a locally quantum decoder based on fine-grained unambiguous measurements. For LDPC codes drawn from Gallager’s ensemble, the code symbols are partitioned into disjoint blocks associated with non-overlapping parity checks. We jointly design the error amplitudes and local measurements using these parity-check constraints. For several choices of \(k\) and \(D\), this strategy achieves a larger expected satisfaction fraction than both simulated annealing and Prange’s algorithm. However, we later develop an improved version of Prange’s algorithm that achieves the same satisfaction fraction ruling out a quantum advantage from this decoding strategy.
 </p>
 
 <h3 style="clear: both; margin: 26px 0 10px;">Quantum Decoding Using BPQM for max-LINSAT Problems</h3>
 
 <p>
-In <a href="https://arxiv.org/abs/2609.05857">our work</a>, we prove that BPQM achieves vanishing block-error probability for random q-ary LDPC code ensembles over symmetric pure-state channels below the BPQM density-evolution threshold. This makes BPQM compatible with the coherent decoding step of DQI and quantum algorithms based on Regev’s reduction. Since the BPQM density-evolution threshold is strictly higher than the corresponding classical BP threshold, using BPQM instead of BP increases the satisfaction fraction achieved by DQI for the associated max-LINSAT problems. A rigorous comparison between DQI with BPQM and simulated annealing remains open.
+Since we prove that  BPQM achieves  <a href="https://arxiv.org/abs/2609.05857">vanishing block-error probability for random q-ary LDPC codes</a>  over symmetric pure-state channels below the BPQM density-evolution threshold, BPQM becomes compatible with the coherent decoding step of DQI and quantum algorithms based on Regev’s reduction. The BPQM density-evolution threshold is strictly higher than the corresponding classical BP threshold. Thus, using BPQM instead of BP increases the satisfaction fraction achieved by DQI for the associated max-LINSAT problems. However, we need a rigorous comparison between DQI with BPQM and simulated annealing.
 </p>
 
 <h3 style="clear: both; margin: 26px 0 10px;">Papers</h3>
