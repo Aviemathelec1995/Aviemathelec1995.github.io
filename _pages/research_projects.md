@@ -33,7 +33,7 @@ Density evolution (DE) analyzes the behavior of BP decoding as the code length g
 <p>
 Prior BPQM constructions and density-evolution analyses focused mainly on binary alphabets. We <a href="https://arxiv.org/abs/2601.21330">generalize</a> BPQM to symmetric q-ary PSCs whose output states follow circular symmetry. For this class of channels, check-node and bit-node combining can be tracked efficiently through closed-form recursions on the Gram-matrix eigenvalues, independently of the physical realization of the output states. These recursions yield explicit BPQM operations and a DE framework for estimating LDPC decoding thresholds and constructing polar codes for a target block-error rate. 
 <br><br>
-Our <a href="https://arxiv.org/abs/2607.14247">work on finite abelian groups</a> considers collections of quantum states in which each state is indexed by an element of a finite abelian group, forming a group-covariant PSC. Due to the group symmetry, the channel can be characterized by the eigenvalues of its Gram matrix, with each eigenvalue indexed by a group character. Based on this representation, we develop quantum message-passing update rules for a general class of factors. These local rules preserve the class of group-covariant quantum messages and provide a message-passing framework for tree factor graphs. For coding theoretic applications, this framework applies to polar codes, LDPC codes, and convolutional and turbo codes defined on abelian groups. It recovers the q-ary formulation when the group is the integers modulo q and extends BPQM to non-cyclic alphabets and more general factor-graph constraints.
+Our <a href="https://arxiv.org/abs/2604.12186">work on finite abelian groups</a> considers collections of quantum states in which each state is indexed by an element of a finite abelian group, forming a group-covariant PSC. Due to the group symmetry, the channel can be characterized by the eigenvalues of its Gram matrix, with each eigenvalue indexed by a group character. Based on this representation, we develop quantum message-passing update rules for a general class of factors. These local rules preserve the class of group-covariant quantum messages and provide a message-passing framework for tree factor graphs. For coding theoretic applications, this framework applies to polar codes, LDPC codes, and convolutional and turbo codes defined on abelian groups. It recovers the q-ary formulation when the group is the integers modulo q and extends BPQM to non-cyclic alphabets and more general factor-graph constraints.
 </p>
 
 <h3 style="clear: both; margin: 26px 0 10px;">Double Exponential Convergence of BPQM Error Rate</h3>
@@ -52,7 +52,7 @@ We <a href="https://arxiv.org/abs/2609.05857">developed a decoder for random q-a
 2. Belief-Propagation with Quantum Messages for Polar Codes on Classical-Quantum Channels, <a href="https://ieeexplore.ieee.org/document/10206723">ISIT 2023</a><br>
 3. Polar Codes for CQ Channels: Decoding via Belief-Propagation with Quantum Messages, <a href="https://arxiv.org/abs/2401.07167">(arXiv)</a><br>
 4. Belief Propagation with Quantum Messages for Symmetric Q-ary Pure-State Channels, <a href="https://ieeexplore.ieee.org/document/11653951">ISIT 2026</a> <a href="https://arxiv.org/abs/2601.21330">(arXiv)</a><br>
-5. Quantum Message Passing for Factor Graphs over Finite Abelian Groups, <a href="https://arxiv.org/abs/2607.14247">(arXiv)</a><br>
+5. Quantum Message Passing for Factor Graphs over Finite Abelian Groups, <a href="https://arxiv.org/abs/2604.12186">(arXiv)</a><br>
 6. Quantum Message Passing Convergence and Vanishing Block-Error Probability for Random LDPC Codes, <a href="https://arxiv.org/abs/2609.05857">(arXiv)</a>.
 
 <h3 style="clear: both; margin: 26px 0 10px;">Repositories</h3>
@@ -62,6 +62,40 @@ We <a href="https://arxiv.org/abs/2609.05857">developed a decoder for random q-a
 
 <div style="clear: both;"></div>
 
+
+<div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;"> Quantum Decoding for Quantum Optimization Algorithms</div>
+<hr style="border: 1px solid #ccc; margin-bottom: 15px;">
+<p>
+<a href="https://doi.org/10.1038/s41586-025-09527-5">Decoded quantum interferometry (DQI)</a> is a quantum algorithm that uses the quantum Fourier transform to reduce classical combinatorial optimization problems to code-decoding problems. At a high level, the constraints of an optimization problem define a classical linear code through its parity checks. This code is decoded within the quantum algorithm, while a shifted version of its dual code describes the possible outputs. The amount of noise corrected by the decoder influences the quality of the solution produced by the algorithm.
+</p>
+<p>
+DQI is closely related to <a href="https://doi.org/10.1145/1568318.1568324">Regev’s reduction</a>, a foundational result in lattice-based cryptography. The <a href="https://doi.org/10.1109/TIT.2023.3327759">coding-theoretic generalization of Regev’s reduction</a> uses quantum Fourier sampling to find low-weight codewords of a dual code. It prepares a coherent superposition of corrupted codewords in which the error amplitudes are concentrated around low-Hamming-weight error patterns. A key step in both this reduction and DQI is to coherently uncompute an unwanted register with high probability. In the setting considered in our work, this coherent decoding becomes the problem of decoding a classical code over a pure-state classical–quantum channel.
+</p>
+
+<p>
+We studied quantum decoding methods to improve these algorithms. Our contributions are summarized below.
+</p>
+
+<h3 style="clear: both; margin: 26px 0 10px;">Optimization with Locally Quantum Decoding</h3>
+
+<p>
+Consider a max-\(k\)-XORSAT instance specified by a matrix \(B\in\mathbb{F}_2^{m\times n}\) and a vector \(v\in\mathbb{F}_2^m\). The goal is to find \(x\in\mathbb{F}_2^n\) that minimizes \(\lvert Bx-v\rvert\), where the Hamming weight \(\lvert Bx-v\rvert\) counts the number of unsatisfied parity constraints and each constraint contains at most \(k\) variables. For sparse instances, DQI converts this optimization problem into decoding an LDPC code whose parity-check matrix is \(B^{\mathsf T}\). The corresponding problem over \(\mathbb{F}_q\) is called max-LINSAT, which is converted into decoding a q-ary LDPC code.
+</p>
+
+<p>
+In <a href="https://arxiv.org/abs/2604.24633">our work</a>, we develop a locally quantum decoder based on fine-grained unambiguous measurements. For LDPC codes drawn from Gallager’s ensemble, the code symbols are partitioned into disjoint blocks associated with non-overlapping parity checks. We jointly design the error amplitudes and local measurements using these parity-check constraints. For several choices of \(k\) and \(D\), this strategy achieves a larger expected satisfaction fraction than both simulated annealing and Prange’s algorithm. However, we later develop an improved version of Prange’s algorithm, called Turbo Prange, that achieves the same satisfaction fraction, ruling out a quantum advantage from this decoding strategy.
+</p>
+
+<h3 style="clear: both; margin: 26px 0 10px;">Quantum Decoding Using BPQM for max-LINSAT Problems</h3>
+
+<p>
+In <a href="https://arxiv.org/abs/2609.05857">our work</a>, we prove that BPQM achieves vanishing block-error probability for random q-ary LDPC code ensembles over symmetric pure-state channels below the BPQM density-evolution threshold. This makes BPQM compatible with the coherent decoding step of DQI and quantum algorithms based on Regev’s reduction. Since the BPQM density-evolution threshold is strictly higher than the corresponding classical BP threshold, using BPQM instead of BP increases the satisfaction fraction achieved by DQI for the associated max-LINSAT problems. A rigorous comparison between DQI with BPQM and simulated annealing remains open.
+</p>
+
+<h3 style="clear: both; margin: 26px 0 10px;">Papers</h3>
+1. Optimization Using Locally-Quantum Decoders, <a href="https://arxiv.org/abs/2604.24633">(arXiv)</a><br>
+2. Belief Propagation with Quantum Messages for Symmetric Q-ary Pure-State Channels, <a href="https://ieeexplore.ieee.org/document/11653951">ISIT 2026</a> <a href="https://arxiv.org/abs/2601.21330">(arXiv)</a><br>
+3. Quantum Message Passing Convergence and Vanishing Block-Error Probability for Random LDPC Codes, <a href="https://arxiv.org/abs/2609.05857">(arXiv)</a>.
 
 
 <div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;"> Reed--Muller Codes on Classical-Quantum Channels</div>
