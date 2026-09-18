@@ -27,6 +27,21 @@
     }
   ],
 
+  "work": [
+    {
+      "name": "Google Quantum AI",
+      "position": "Student Researcher — Quantum Optimization Algorithms Team",
+      "startDate": "2025-05",
+      "endDate": "2025-08"
+    },
+    {
+      "name": "Nokia Bell Labs",
+      "position": "6G-Radio Systems Intern",
+      "startDate": "2024-06",
+      "endDate": "2024-08"
+    }
+  ],
+
   "publications": [
     
   ],

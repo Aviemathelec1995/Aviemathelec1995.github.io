@@ -4,7 +4,7 @@ permalink: /Talks/
 title: Talks
 description: Here are the slides for the talks that I have presented so far
 nav: true
-nav_order: 6
+nav_order: 7
 ---
 <div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;">2025</div>
 <hr style="border: 1px solid #ccc; margin-bottom: 15px;">

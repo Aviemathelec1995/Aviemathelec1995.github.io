@@ -21,7 +21,7 @@ Deep-space optical communication is a motivating application. When the received 
 <p>
 <a href="https://doi.org/10.1088/1367-2630/aa7c78">Belief propagation with quantum messages (BPQM)</a> was introduced as a quantum analogue of classical BP for decoding classical linear codes with tree factor graphs over binary-input pure-state CQ channels, where directly implementing the optimal collective measurement becomes infeasible for large code blocks. <a href="https://doi.org/10.22331/q-2022-08-23-784">Later it was proved</a> that BPQM minimizes both the probability of decoding one bit incorrectly and the probability of decoding the full block incorrectly for binary linear codes with tree factor graphs on a PSC. The decoding complexity was also reduced from exponential to quadratic.
 </p>
-
+Our works extend BPQM and develop rigorous tools for the analysis and design of efficient quantum message-passing algorithms. The main contributions are summarized below.
 <h3 style="clear: both; margin: 26px 0 10px;">Quantum Message Passing for Binary CQ Channels</h3>
 <img src="../assets/img/operational_bpqm.gif" alt="Operational BPQM visualization" width="400" style="float: right; clear: right; max-width: 48%; height: auto; margin: 0 0 18px 22px;">
 <p>
@@ -36,13 +36,13 @@ Prior BPQM constructions and density-evolution analyses focused mainly on binary
 Our <a href="https://arxiv.org/abs/2607.14247">work on finite abelian groups</a> considers collections of quantum states in which each state is indexed by an element of a finite abelian group, forming a group-covariant PSC. Due to the group symmetry, the channel can be characterized by the eigenvalues of its Gram matrix, with each eigenvalue indexed by a group character. Based on this representation, we develop quantum message-passing update rules for a general class of factors. These local rules preserve the class of group-covariant quantum messages and provide a message-passing framework for tree factor graphs. For coding theoretic applications, this framework applies to polar codes, LDPC codes, and convolutional and turbo codes defined on abelian groups. It recovers the q-ary formulation when the group is the integers modulo q and extends BPQM to non-cyclic alphabets and more general factor-graph constraints.
 </p>
 
-<h3 style="clear: both; margin: 26px 0 10px;">Double Exponential Convergence of Error Rate</h3>
+<h3 style="clear: both; margin: 26px 0 10px;">Double Exponential Convergence of BPQM Error Rate</h3>
 <img src="../assets/img/bpqm_achievable_region.gif" alt="" width="400" style="float: right; clear: right; max-width: 48%; height: auto; margin: 0 0 18px 22px;">
 <p>
-For regular computation trees with variable-node degree at least three, we <a href="https://arxiv.org/abs/2609.05857">proved double-exponential convergence</a>: below the BPQM density-evolution threshold, the symbol-error probability under BPQM decays double exponentially with the number of decoding rounds.
+For computation trees with variable-node degree at least three, we <a href="https://arxiv.org/abs/2609.05857">proved double-exponential convergence</a>. Below the BPQM density-evolution threshold, the symbol-error probability under BPQM decays double exponentially with the number of decoding rounds. This result is also important because it provides a finite-length sufficient criterion for convergence of the symbol-error probability under density evolution.
 </p>
 <p>
-We then <a href="https://arxiv.org/abs/2609.05857">developed a decoder for random regular q-ary LDPC codes</a> that applies BPQM to symbols whose local computation neighborhoods are trees, treats symbols whose neighborhoods contain cycles as erasures, and recovers those erased symbols by Gaussian elimination. For channels below the BPQM threshold, the block-error probability of this decoder vanishes as the blocklength tends to infinity. This shows that BPQM decoding works for random LDPC codes even when their Tanner graphs contain cycles.
+We <a href="https://arxiv.org/abs/2609.05857">developed a decoder for random q-ary LDPC codes</a> that applies BPQM to symbols whose local computation neighborhoods are trees, treats symbols whose neighborhoods contain cycles as erasures, and recovers those erased symbols by Gaussian elimination. For channels below the BPQM threshold, the block-error probability of this decoder vanishes as the blocklength tends to infinity. This shows that BPQM decoding works for random LDPC codes even when their Tanner graphs contain cycles.
 </p>
 
 <div style="clear: both; height: 8px;"></div>
