@@ -66,10 +66,10 @@ We <a href="https://arxiv.org/abs/2609.05857">developed a decoder for random q-a
 <div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;"> Quantum Decoding for Quantum Optimization Algorithms</div>
 <hr style="border: 1px solid #ccc; margin-bottom: 15px;">
 <p>
-<a href="https://doi.org/10.1038/s41586-025-09527-5">Decoded quantum interferometry (DQI)</a> is a quantum algorithm that uses the quantum Fourier transform to reduce classical combinatorial optimization problems to code-decoding problems. At a high level, the constraints of an optimization problem define a classical linear code through its parity checks. This code is decoded within the quantum algorithm, while a shifted version of its dual code describes the possible outputs. The amount of noise corrected by the decoder influences the quality of the solution produced by the algorithm.
+<a href="https://doi.org/10.1038/s41586-025-09527-5">Decoded quantum interferometry (DQI)</a> is a quantum algorithm that uses the quantum Fourier transform to reduce classical combinatorial optimization problems to decoding problems of classical linear codes. At a high level, the constraints of an optimization problem define a classical linear code through its parity checks. This code is decoded within the quantum algorithm, while a shifted version of its dual code describes the possible outputs. The amount of noise corrected by the decoder influences the quality of the solution produced by the algorithm.
 </p>
 <p>
-DQI is closely related to <a href="https://doi.org/10.1145/1568318.1568324">Regev’s reduction</a>, a foundational result in lattice-based cryptography. The <a href="https://doi.org/10.1109/TIT.2023.3327759">coding-theoretic generalization of Regev’s reduction</a> uses quantum Fourier sampling to find low-weight codewords of a dual code. It prepares a coherent superposition of corrupted codewords in which the error amplitudes are concentrated around low-Hamming-weight error patterns. A key step in both this reduction and DQI is to coherently uncompute an unwanted register with high probability. In the setting considered in our work, this coherent decoding becomes the problem of decoding a classical code over a pure-state classical–quantum channel.
+DQI is closely related to <a href="https://doi.org/10.1145/1568318.1568324">Regev’s reduction</a>, a foundational result in lattice-based cryptography. The <a href="https://doi.org/10.1109/TIT.2023.3327759">coding-theoretic generalization of Regev’s reduction</a> uses quantum Fourier sampling to find low-weight codewords of a dual code. It prepares a coherent superposition of corrupted codewords in which the error amplitudes are concentrated around low-weight error patterns. A key step in both this reduction and DQI is to coherently uncompute an unwanted register with high probability. In the setting considered in our work, this coherent decoding becomes the problem of decoding a classical code over a pure-state classical–quantum channel.
 </p>
 
 <p>
@@ -98,7 +98,40 @@ Since we prove that  BPQM achieves  <a href="https://arxiv.org/abs/2609.05857">v
 3. Quantum Message Passing Convergence and Vanishing Block-Error Probability for Random LDPC Codes, <a href="https://arxiv.org/abs/2609.05857">(arXiv)</a>.
 
 
-<div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;"> Reed--Muller Codes on Classical-Quantum Channels</div>
+<div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;"> Affine Filtering Measurements</div>
+<hr style="border: 1px solid #ccc; margin-bottom: 15px;">
+
+<p>
+For a linear code \(\mathcal C\subseteq\mathbb F_q^N\), consider a collection of symmetric quantum states \(\{\lvert\psi_{\mathbf c}\rangle\}_{\mathbf c\in\mathcal C}\), where each state is indexed by a codeword \(\mathbf c\in\mathcal C\). Suppose we want to design an unambiguous state-discrimination measurement for this collection that maximizes the expected number of recovered linear constraints. The measurement can recover at most \(\dim(\mathcal C)\) independent linear constraints about the transmitted codeword. When applied to the state \(\lvert\psi_{\mathbf c}\rangle\), the measurement outputs either an affine subspace of the code guaranteed to contain \(\mathbf c\) or an inconclusive outcome. We call this an affine filtering measurement because it filters an affine subspace containing the transmitted codeword from the received state.
+</p>
+
+<h3 style="clear: both; margin: 26px 0 10px;">Optimal Measurement Design</h3>
+
+<p>
+The objective is to design the optimal affine filtering measurement. Finding the optimal measurement is a semidefinite program. In <a href="https://arxiv.org/abs/2606.07852">our work</a>, we define this class of measurements and prove that, for symmetric states with uniform priors, this semidefinite program can be reduced to a linear program using Fourier analysis. The solution of the linear program also provides an explicit construction of the optimal measurement.
+</p>
+
+<h3 style="clear: both; margin: 26px 0 10px;">Applications to LDPC Decoding</h3>
+
+<p>
+As an application, we apply these measurements to quantum states associated with non-overlapping single-parity-check constraints of regular LDPC codes from Gallager ensembles over pure-state channels. Each conclusive measurement outcome provides linear constraints satisfied by the transmitted codeword, while an inconclusive outcome is treated as an erasure. The recovered constraints are combined with the global parity-check equations, and Gaussian elimination is used to recover the codeword. For several regular LDPC ensembles, affine-filtering decoding outperforms symbol-wise unambiguous state discrimination followed by Gaussian elimination and symbol-wise pretty good measurements followed by classical belief propagation. For several ensembles, its decoding threshold also exceeds the BPQM density-evolution threshold.
+</p>
+
+<h3 style="clear: both; margin: 26px 0 10px;">Connection to Locally Quantum Decoding</h3>
+
+<p>
+We also prove that the <a href="https://arxiv.org/abs/2604.24633">fine-grained unambiguous measurements used for locally quantum decoding</a> are special cases of affine filtering measurements. For the chosen error amplitudes and the states associated with a single-parity-check constraint, these measurements are optimal affine filtering measurements for maximizing the expected number of recovered linear constraints.
+</p>
+
+<h3 style="clear: both; margin: 26px 0 10px;">Papers</h3>
+1. Affine Filtering Measurements and Their Applications to Quantum Decoding, <a href="https://arxiv.org/abs/2606.07852">(arXiv)</a><br>
+2. Optimization Using Locally-Quantum Decoders, <a href="https://arxiv.org/abs/2604.24633">(arXiv)</a>.
+
+<h3 style="clear: both; margin: 26px 0 10px;">Repository</h3>
+1. Affine-filtering measurement optimization and LDPC decoding simulations - <a href="https://github.com/Aviemathelec1995/Affine_filtering_decoder">Affine_filtering_decoder</a>.
+
+
+<div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;"> Reed-Muller Codes on Classical-Quantum Channels</div>
 <hr style="border: 1px solid #ccc; margin-bottom: 15px;">
 Reed-Muller (RM) codes has gained considerable amount interest in theoretical computer science and coding theory community since its discovery in 1954. <br>
 In 2016, Kudekar et al. showed that RM codes achieve capacity on binary erausure channels (BEC)<a href="https://arxiv.org/pdf/1601.04689">.</a> Later, this result was extended by Reeves and Pfister in 2021, where they showed RM codes achieve vanishing bit error rate for binary memoryless symmetric (BMS) channels  for all rates below capacity. This was further extened in 2023 by Abbe and Sandon who showed block error probability also vanishes for BMS channels. 
