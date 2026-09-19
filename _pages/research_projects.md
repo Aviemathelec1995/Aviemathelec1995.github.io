@@ -25,7 +25,7 @@ Our works extend BPQM and develop rigorous tools for the analysis and design of 
 <h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Quantum Message Passing for Binary CQ Channels</h3>
 <img src="../assets/img/operational_bpqm.gif?v=20260918e" alt="Operational BPQM visualization" width="400" style="float: right; clear: right; max-width: 48%; height: auto; margin: 0 0 18px 22px;">
 <p>
-Density evolution (DE) analyzes the behavior of BP decoding as the code length grows. It tracks the distribution of messages passed along the edges of a factor graph and finds the noise threshold, the largest channel-noise level for which the decoding error approaches zero. <a href="https://arxiv.org/abs/2207.04984">Our work</a> generalized DE equations for BPQM over binary-input symmetric CQ channels and used them to compute noise thresholds for regular LDPC codes. We then used DE to <a href="https://arxiv.org/abs/2401.07167">design polar codes for BPQM decoding</a>, determine their achievable rates, and validate the analysis through decoder simulations.
+Density evolution (DE) analyzes the behavior of BP decoding as the code length grows. It tracks the distribution of messages passed along the edges of a factor graph and finds the noise threshold, the largest channel-noise level for which the decoding error approaches zero. <a href="https://arxiv.org/abs/2207.04984">Our work</a> generalizes DE equations for BPQM over binary-input symmetric CQ channels and uses them to compute noise thresholds for regular LDPC codes. We then use DE to <a href="https://arxiv.org/abs/2401.07167">design polar codes for BPQM decoding</a>, determine their achievable rates, and validate the analysis through decoder simulations.
 </p>
 
 <h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Quantum Message Passing on Channels with Larger Input Alphabets</h3>
@@ -39,10 +39,10 @@ Our <a href="https://arxiv.org/abs/2604.12186">work on finite abelian groups</a>
 <h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Double Exponential Convergence of BPQM Error Rate</h3>
 <img src="../assets/img/bpqm_achievable_region.gif" alt="" width="400" style="float: right; clear: right; max-width: 48%; height: auto; margin: 0 0 18px 22px;">
 <p>
-For computation trees with variable-node degree at least three, we <a href="https://arxiv.org/abs/2609.05857">proved double-exponential convergence</a>. Below the BPQM density-evolution threshold, the symbol-error probability under BPQM decays double exponentially with the number of decoding rounds. This result is also important because it provides a finite-length sufficient criterion for convergence of the symbol-error probability under density evolution.
+For computation trees with variable-node degree at least three, we <a href="https://arxiv.org/abs/2609.05857">prove double-exponential convergence</a>. Below the BPQM density-evolution threshold, the symbol-error probability under BPQM decays double exponentially with the number of decoding rounds. This result is also important because it provides a finite-length sufficient criterion for convergence of the symbol-error probability under density evolution.
 </p>
 <p>
-We <a href="https://arxiv.org/abs/2609.05857">developed a decoder for random q-ary LDPC codes</a> that applies BPQM to symbols whose local computation neighborhoods are trees, treats symbols whose neighborhoods contain cycles as erasures, and recovers those erased symbols by Gaussian elimination. For channels below the BPQM threshold, the block-error probability of this decoder vanishes as the blocklength tends to infinity. This shows that BPQM decoding works for random LDPC codes even when their Tanner graphs contain cycles.
+We <a href="https://arxiv.org/abs/2609.05857">develop a decoder for random q-ary LDPC codes</a> that applies BPQM to symbols whose local computation neighborhoods are trees, treats symbols whose neighborhoods contain cycles as erasures, and recovers those erased symbols by Gaussian elimination. For channels below the BPQM threshold, the block-error probability of this decoder vanishes as the blocklength tends to infinity. This shows that BPQM decoding works for random LDPC codes even when their Tanner graphs contain cycles.
 </p>
 
 <div style="clear: both; height: 8px;"></div>
@@ -73,7 +73,7 @@ DQI is closely related to <a href="https://doi.org/10.1145/1568318.1568324">Rege
 </p>
 
 <p>
-We studied quantum decoding methods to improve these algorithms. Our contributions are summarized below.
+We study quantum decoding methods to improve these algorithms. Our contributions are summarized below.
 </p>
 
 <h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Optimization with Locally Quantum Decoding</h3>

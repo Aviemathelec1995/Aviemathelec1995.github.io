@@ -19,7 +19,7 @@
   "education": [
     {
       "institution": "Duke University",
-      "location": "Durham, USA",
+      "location": "Durham, NC, USA",
       "url": "https://duke.edu/",
       "startDate": "2022-01-06",
       "area":"Electrical and Computer Engineering",
@@ -31,12 +31,14 @@
     {
       "name": "Google Quantum AI",
       "position": "Student Researcher — Quantum Optimization Algorithms Team",
+      "location": "Venice, CA, USA",
       "startDate": "2025-05",
       "endDate": "2025-08"
     },
     {
       "name": "Nokia Bell Labs",
       "position": "6G-Radio Systems Intern",
+      "location": "Murray Hill, NJ, USA",
       "startDate": "2024-06",
       "endDate": "2024-08"
     }
