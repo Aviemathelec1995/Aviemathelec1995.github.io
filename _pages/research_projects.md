@@ -6,6 +6,17 @@ description: Selected Research Projects
 nav: true
 nav_order: 3
 ---
+<style>
+@media (max-width: 576px) {
+  .abstract-bpqm-visual {
+    float: none !important;
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 18px auto !important;
+  }
+}
+</style>
 <div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;"> Quantum Message Passing</div>
 <hr style="border: 1px solid #ccc; margin-bottom: 15px;">
 <h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">History</h3>
@@ -29,7 +40,7 @@ Density evolution (DE) analyzes the behavior of BP decoding as the code length g
 </p>
 
 <h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Quantum Message Passing on Channels with Larger Input Alphabets</h3>
-<img src="../assets/img/abstract_bpqm.gif" alt="Abstract BPQM visualization" width="400" style="float: right; clear: right; max-width: 48%; height: auto; margin: 32px 0 18px 22px;">
+<img class="abstract-bpqm-visual" src="../assets/img/abstract_bpqm.gif?v=20260923" alt="Abstract BPQM visualization" width="480" style="float: right; clear: right; max-width: 55%; height: auto; margin: 32px 0 18px 22px;">
 <p>
 Prior BPQM constructions and density-evolution analyses focused mainly on binary alphabets. We <a href="https://arxiv.org/abs/2601.21330">generalize</a> BPQM to symmetric q-ary PSCs whose output states follow circular symmetry. For this class of channels, check-node and bit-node combining can be tracked efficiently through closed-form recursions on the Gram-matrix eigenvalues, independently of the physical realization of the output states. These recursions yield explicit BPQM operations and a DE framework for estimating LDPC decoding thresholds and constructing polar codes for a target block-error rate. 
 <br><br>
