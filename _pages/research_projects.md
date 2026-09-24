@@ -7,13 +7,16 @@ nav: true
 nav_order: 3
 ---
 <style>
+.abstract-bpqm-visual {
+  display: block;
+  width: min(760px, 100%);
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto 34px;
+}
 @media (max-width: 576px) {
   .abstract-bpqm-visual {
-    float: none !important;
-    display: block;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 18px auto !important;
+    margin: 16px auto 28px;
   }
 }
 </style>
@@ -40,10 +43,11 @@ Density evolution (DE) analyzes the behavior of BP decoding as the code length g
 </p>
 
 <h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Quantum Message Passing on Channels with Larger Input Alphabets</h3>
-<img class="abstract-bpqm-visual" src="../assets/img/abstract_bpqm.gif?v=20260923" alt="Abstract BPQM visualization" width="480" style="float: right; clear: right; max-width: 55%; height: auto; margin: 32px 0 18px 22px;">
 <p>
-Prior BPQM constructions and density-evolution analyses focused mainly on binary alphabets. We <a href="https://arxiv.org/abs/2601.21330">generalize</a> BPQM to symmetric q-ary PSCs whose output states follow circular symmetry. For this class of channels, check-node and bit-node combining can be tracked efficiently through closed-form recursions on the Gram-matrix eigenvalues, independently of the physical realization of the output states. These recursions yield explicit BPQM operations and a DE framework for estimating LDPC decoding thresholds and constructing polar codes for a target block-error rate. 
-<br><br>
+Prior BPQM constructions and density-evolution analyses focused mainly on binary alphabets. We <a href="https://arxiv.org/abs/2601.21330">generalize</a> BPQM to symmetric q-ary PSCs whose output states follow circular symmetry. For this class of channels, check-node and bit-node combining can be tracked efficiently through closed-form recursions on the Gram-matrix eigenvalues, independently of the physical realization of the output states. These recursions yield explicit BPQM operations and a DE framework for estimating LDPC decoding thresholds and constructing polar codes for a target block-error rate.
+</p>
+<img class="abstract-bpqm-visual" src="../assets/img/abstract_bpqm.gif?v=20260924c" alt="Abstract BPQM visualization" width="760">
+<p>
 Our <a href="https://arxiv.org/abs/2604.12186">work on finite abelian groups</a> considers collections of quantum states in which each state is indexed by an element of a finite abelian group, forming a group-covariant PSC. Due to the group symmetry, the channel can be characterized by the eigenvalues of its Gram matrix, with each eigenvalue indexed by a group character. Based on this representation, we develop quantum message-passing update rules for a general class of factors. These local rules preserve the class of group-covariant quantum messages and provide a message-passing framework for tree factor graphs. For coding theoretic applications, this framework applies to polar codes, LDPC codes, and convolutional and turbo codes defined on abelian groups. It recovers the q-ary formulation when the group is the integers modulo q and extends BPQM to non-cyclic alphabets and more general factor-graph constraints.
 </p>
 
