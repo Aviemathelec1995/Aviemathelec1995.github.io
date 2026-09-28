@@ -6,6 +6,12 @@ description: Here are the slides for the talks that I have presented so far
 nav: true
 nav_order: 7
 ---
+<div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;">2026</div>
+<hr style="border: 1px solid #ccc; margin-bottom: 15px;">
+
+**Aug 2026, Online:** Recent progress on decoding classical codes on classical quantum channels, IBM Research <a href="https://drive.google.com/file/d/19V20yZohpZ1Ywr_Cb9vmexE0BQdNUMwN/view?usp=sharing"> (Slides) </a>.<br>
+<br>
+
 <div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;">2025</div>
 <hr style="border: 1px solid #ccc; margin-bottom: 15px;">
 
