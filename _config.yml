@@ -328,8 +328,8 @@ scholar:
   style: apa
   locale: en
 
-  sort_by: year, eprint
-  order: descending, descending
+  sort_by: year, website_order, eprint
+  order: descending, descending, descending
 
   source: /_bibliography/
   bibliography: papers.bib
@@ -382,6 +382,7 @@ filtered_bibtex_keywords:
     supp,
     video,
     website,
+    website_order,
   ]
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)

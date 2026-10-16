@@ -19,6 +19,18 @@ nav_order: 3
     margin: 16px auto 28px;
   }
 }
+.entanglement-generation-visual {
+  display: block;
+  width: min(860px, 100%);
+  max-width: 100%;
+  height: auto;
+  margin: 24px auto 30px;
+}
+@media (max-width: 576px) {
+  .entanglement-generation-visual {
+    margin: 18px auto 26px;
+  }
+}
 </style>
 <div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;"> Quantum Message Passing</div>
 <hr style="border: 1px solid #ccc; margin-bottom: 15px;">
@@ -74,6 +86,41 @@ We <a href="https://arxiv.org/abs/2609.05857">develop a decoder for random q-ary
 1. Finding thresholds for regular LDPC codes over binary symmetric CQ channels - <a href="https://github.com/Aviemathelec1995/PMBPQM_BSCQ">PMBPQM_BSCQ</a><br>
 2. Simulating the BPQM-based polar decoder - <a href="https://github.com/Aviemathelec1995/CQ-Polar-BPQM">CQ-Polar-BPQM</a><br>
 3. Simulating BPQM and density evolution for symmetric q-ary pure-state channels - <a href="https://github.com/Aviemathelec1995/q_ary_BPQM">q_ary_BPQM</a>.
+
+<div style="clear: both;"></div>
+
+
+<div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;"> Capacity-Achieving Entanglement Generation for Pure-Loss Bosonic Channels</div>
+<hr style="border: 1px solid #ccc; margin-bottom: 15px;">
+
+<p>
+Entanglement generation is a basic task in quantum communication, with the goal of establishing shared entangled pairs through a noisy channel. The central challenge is to achieve high generation rates with efficient encoding and decoding. Polar codes can be used for quantum communication and entanglement generation by combining two complementary coding problems. These problems concern the outcomes associated with measurements in the computational basis and its Fourier conjugate basis. The corresponding outcomes are referred to as amplitude and phase information. Each defines a CQ decoding problem, with the recovered amplitude information also available to the phase decoder. Performing both decoding operations coherently allows the protocol to generate entanglement. However, efficient implementations of the required decoders were not previously known.
+</p>
+
+<p>
+In <a href="https://arxiv.org/abs/2610.03674">our work</a>, we develop an efficient entanglement-generation scheme using BPQM-based decoding for a family of pure discrete phase covariant (PDPC) channels, which includes the pure-loss Bosonic channel truncated at a finite photon cutoff. The amplitude channel has commuting outputs and admits classical decoding. The phase channel is equivalent to a heralded mixture of symmetric pure-state channels. The herald is a label that identifies the component channel and allows BPQM to perform the phase decoding.
+</p>
+
+<p>
+We first formulate the protocol using entanglement-assisted CSS codes. The sender prepares \(m\) copies of a bipartite pure state \(\lvert\chi\rangle_{AB}\), keeps each \(A\) system, and sends each \(B\) system through the channel \(\mathcal N\). The resulting shared state is \(\sigma_{AB}^{\otimes m}\), where \(\sigma_{AB}=(\mathrm{id}_A\otimes\mathcal N)(\lvert\chi\rangle\!\langle\chi\rvert_{AB})\). The sender applies the syndrome-extraction circuit \(V\) to \(A^m\) and sends classical syndrome information to the receiver for amplitude and phase decoding. The amplitude decoder \(U_\Lambda\) coherently stores its estimate in an auxiliary register \(A'^m\). The phase decoder \(U_\Gamma\) then uses this register together with the channel outputs.
+</p>
+
+<img class="entanglement-generation-visual" src="../assets/img/entanglement_generation.gif?v=20261016b" alt="Sequential entanglement-generation circuit showing Alice, Bob, coherent amplitude decoding, and BPQM phase decoding" width="860">
+
+<p>
+In the circuit, \(V\) splits the sender’s systems according to their decoding reliability. The register \(\bar A\) is reliable in both bases, stays with the sender, and becomes the sender’s half of the entangled output. The registers \(\check A\) and \(\widehat A\) are measured, and the results are transmitted to the receiver for amplitude and phase decoding. The register \(\underline A\) is required by both decoders and is teleported to the receiver using preshared entanglement. This consumed entanglement is subtracted from the net generation rate.
+</p>
+
+<p>
+For polar codes, \(U_\Lambda\) reversibly computes the amplitude estimate from \(B^m\) into \(A'^m\). The phase decoder \(U_\Gamma\) uses BPQM along the polar decoding graph and outputs its decisions into \(\bar R\). The \(F\) gates change bases, and the final controlled correction leaves \(\bar A\) and \(\bar R\) entangled when both decoders succeed. The two decoding errors bound the output infidelity and vanish for PDPC channels.
+</p>
+
+<p>
+The protocol requires the <a href="https://arxiv.org/abs/2601.21330">generalization of BPQM from binary to \(q\)-ary alphabets</a>. For a prime input dimension \(d\), the coherent amplitude decoder and the BPQM phase decoder of a length-\(m\) polar code each use \(O(d^2m\log m)\) operations. The output fidelity tends to one, and the net entanglement-generation rate approaches the coherent information of \(\sigma_{AB}\). For the pure-loss Bosonic channel, the protocol approaches the energy-constrained capacity as the photon cutoff increases. To our knowledge, no explicit and efficiently decodable entanglement-generation protocol had previously achieved this capacity.
+</p>
+
+<h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Paper</h3>
+1. Efficient Capacity-Achieving Entanglement Generation with Application to Pure-Loss Bosonic Channels, <a href="https://arxiv.org/abs/2610.03674">(arXiv)</a>.
 
 <div style="clear: both;"></div>
 
