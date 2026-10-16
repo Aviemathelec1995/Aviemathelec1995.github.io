@@ -18,3 +18,14 @@ nav_order: 2
 {% bibliography %}
 
 </div>
+
+<script>
+  const areaTheoremArxivUrl = "https://arxiv.org/pdf/2610.03674";
+
+  if (
+    areaTheoremArxivUrl &&
+    window.location.hash.toLowerCase() === "#area"
+  ) {
+    window.location.replace(areaTheoremArxivUrl);
+  }
+</script>
