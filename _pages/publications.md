@@ -20,7 +20,7 @@ nav_order: 2
 </div>
 
 <script>
-  const areaTheoremArxivUrl = null;
+  const areaTheoremArxivUrl = "https://arxiv.org/pdf/2610.22710";
 
   if (
     areaTheoremArxivUrl &&
