@@ -9,6 +9,9 @@ nav_order: 7
 <div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;">2026</div>
 <hr style="border: 1px solid #ccc; margin-bottom: 15px;">
 
+**Nov 2026, In-Person:** Area Theorems for Quantum Error Correction, ITW <a href="https://drive.google.com/file/d/1GXujHhpEpDWJkK2rgD0x9Ym9gJ7TJ7Xk/view?usp=sharing"> (Slides) </a>.<br>
+<br>
+
 **Aug 2026, Online:** Recent progress on decoding classical codes on classical quantum channels, IBM Research <a href="https://drive.google.com/file/d/19V20yZohpZ1Ywr_Cb9vmexE0BQdNUMwN/view?usp=sharing"> (Slides) </a>.<br>
 <br>
 
