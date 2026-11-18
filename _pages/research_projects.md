@@ -43,6 +43,18 @@ nav_order: 3
     margin: 18px auto 26px;
   }
 }
+.area-theorem-visual {
+  display: block;
+  width: min(620px, 100%);
+  max-width: 100%;
+  height: auto;
+  margin: 22px auto 30px;
+}
+@media (max-width: 576px) {
+  .area-theorem-visual {
+    margin: 18px auto 26px;
+  }
+}
 </style>
 <div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;"> Quantum Message Passing</div>
 <hr style="border: 1px solid #ccc; margin-bottom: 15px;">
@@ -133,6 +145,61 @@ For a prime input dimension \(d\), the coherent amplitude decoder and the BPQM p
 
 <h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Paper</h3>
 1. Efficient Capacity-Achieving Entanglement Generation with Application to Pure-Loss Bosonic Channels, <a href="https://arxiv.org/abs/2610.03674">(arXiv)</a>.
+
+<div style="clear: both;"></div>
+
+
+<div style="font-weight: bold; font-size: 1.5em; margin-top: 20px; margin-bottom: 10px;"> Area Theorems for Quantum Error Correction</div>
+<hr style="border: 1px solid #ccc; margin-bottom: 15px;">
+
+<p>
+For the binary erasure channel, the <a href="https://doi.org/10.1109/TIT.2004.836693">extrinsic information transfer (EXIT) function</a> is the normalized derivative of the conditional codeword entropy with respect to the erasure probability. Its integral is fixed by the entropy difference between the noiseless and fully erased channels and therefore equals the code rate. <a href="https://arxiv.org/abs/cs/0511039">Generalized EXIT (GEXIT) functions extend the entropy-derivative formulation and its area theorem to more general channel families</a>. These area theorems relate the code rate to maximum-a-posteriori decoding thresholds and are particularly useful for comparing them with <a href="https://arxiv.org/abs/cs/0506083">belief-propagation thresholds</a>.
+</p>
+
+<h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Coset EXIT Functions</h3>
+
+<p>
+In <a href="https://arxiv.org/abs/2610.22710">our work</a>, we first formulate a classical coset-entropy area theorem for nested binary linear codes \(C_2\subseteq C_1\). A message specifies a coset in \(C_1/C_2\), while encoder randomization selects a codeword from that coset. After the noisy observation, the conditional entropy of the coset index measures the remaining uncertainty about the message. Changing the erasure probability of coordinate \(j\) gives
+\[
+\frac{\partial}{\partial\epsilon_j}H(M\mid Y)
+=I(M;U_j\mid E_{\sim j},Y_{\sim j}).
+\]
+The derivative with respect to the channel parameter defines the coset EXIT function
+\[
+h_{C_1/C_2}(\epsilon)
+=h_{C_1}(\epsilon)-h_{C_2}(\epsilon),
+\]
+and the area under this function equals the dimension of the quotient normalized by the blocklength.
+</p>
+
+<img class="area-theorem-visual" src="../assets/img/coset_exit.gif?v=20261117c" alt="Coset EXIT function constructed from the EXIT functions of two nested linear codes" width="620">
+
+<h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Code Design Using Coset EXIT Functions</h3>
+
+<p>
+On the erasure wiretap channel, an observer at erasure probability \(\epsilon\) has normalized equivocation equal to the accumulated area of the coset EXIT function from \(0\) to \(\epsilon\), while the remaining area is the normalized leakage about the message. Bob’s equivocation about the message vanishes when his channel lies to the left of the coset EXIT curve, and Eve learns nothing about the message when her channel lies to its right. In this region, everything Eve observes about the codeword is accounted for by the randomizer. For a fixed nested pair, the width of the coset EXIT curve is the smallest channel gap for which the pair gives a secrecy protocol. Sharp MAP thresholds for the two codes bring this gap toward the message rate, while duality expresses both boundaries through single-code MAP thresholds.
+</p>
+
+<img class="area-theorem-visual" src="../assets/img/coset_exit_design.gif?v=20261117c" alt="Coset EXIT code design with sharper decoding and secrecy thresholds at the same rate" width="620">
+
+<h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Area Theorems for Stabilizer Codes</h3>
+
+<p>
+For a stabilizer code, the measured syndrome restricts the Pauli error but does not always determine its logical effect, and the remaining uncertainty is an entropy over logical correction classes. We show that this entropy equals a classical coset entropy associated with the stabilizer group \(\mathcal S\) and the Pauli operators \(\mathcal S^{\perp_s}\) that commute with it. Thus, syndrome decoding for a stabilizer code is exactly a classical coset-decoding problem, and the resulting quantum GEXIT function has area equal to the number of encoded qubits per channel use.
+</p>
+
+<p>
+On the quantum erasure channel, the relation between \(\mathcal S\) and \(\mathcal S^{\perp_s}\) gives a folding identity for the quotient \(\mathcal S^{\perp_s}/\mathcal S\) at complementary erasure probabilities. Using this identity and the area theorem, we derive the rate constraint \(R\leq1-2\epsilon\) for code families with vanishing logical error probability, which matches the capacity of the quantum erasure channel. For the depolarizing channel, we derive a rate-dependent converse that reaches zero at \(p=1/4\), where the depolarizing channel becomes antidegradable.
+</p>
+
+<img class="area-theorem-visual" src="../assets/img/stabilizer_erasure_converse.gif?v=20261117c" alt="Stabilizer EXIT symmetry and the quantum erasure-channel rate converse" width="620">
+
+<p>
+The area identities and slope bounds constrain optimal syndrome decoding for every stabilizer code, and the optimal correction-class curves provide a benchmark for practical quantum decoders. Because the GEXIT area is fixed by the rate, the shape of the correction-class curve connects decoding performance directly to rate, which suggests EXIT-based design criteria for coset and CSS codes.
+</p>
+
+<h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Paper</h3>
+1. Area Theorems for Quantum Error Correction, ITW 2026, <a href="https://arxiv.org/abs/2610.22710">(arXiv)</a>.
 
 <div style="clear: both;"></div>
 

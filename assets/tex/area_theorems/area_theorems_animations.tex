@@ -1,0 +1,254 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+\usefonttheme{serif}
+\usepackage{charter}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}{}
+\setbeamercolor{background canvas}{bg=white}
+\renewcommand{\epsilon}{\varepsilon}
+
+\definecolor{curveblue}{RGB}{34,89,159}
+\definecolor{curvered}{RGB}{188,67,59}
+\definecolor{curvepurple}{RGB}{111,62,151}
+\definecolor{curvegray}{RGB}{92,99,108}
+
+% Schematic EXIT curves from the ITW 2026 slides.
+\pgfmathdeclarefunction{exitlogistic}{2}{%
+  \pgfmathparse{(1/(1+exp(-12*(#1-#2)))-1/(1+exp(12*#2)))
+    /(1/(1+exp(-12*(1-#2)))-1/(1+exp(12*#2)))}}
+\pgfmathdeclarefunction{exitupper}{1}{\pgfmathparse{exitlogistic(#1,0.28)}}
+\pgfmathdeclarefunction{exitlower}{1}{\pgfmathparse{exitlogistic(#1,0.72)}}
+\pgfmathdeclarefunction{exitquot}{1}{\pgfmathparse{exitupper(#1)-exitlower(#1)}}
+
+\pgfmathdeclarefunction{smoothtrap}{6}{%
+  \pgfmathparse{ifthenelse(#1<#2,0,
+    ifthenelse(#1<#3,#6*(3*((#1-#2)/(#3-#2))^2-2*((#1-#2)/(#3-#2))^3),
+    ifthenelse(#1<#4,#6,
+    ifthenelse(#1<#5,#6*(1-3*((#1-#4)/(#5-#4))^2+2*((#1-#4)/(#5-#4))^3),0))))}}
+\pgfmathdeclarefunction{wireasym}{1}{\pgfmathparse{smoothtrap(#1,0.24,0.49,0.70,0.83,0.8)}}
+\pgfmathdeclarefunction{wireasymbetter}{1}{%
+  \pgfmathparse{smoothtrap(#1,0.35,0.42,0.685,0.725,1)}}
+
+\pgfmathdeclarefunction{wirebase}{1}{%
+  \pgfmathparse{ifthenelse(#1<0.2,0,
+    ifthenelse(#1<0.4,0.8*(3*((#1-0.2)/0.2)^2-2*((#1-0.2)/0.2)^3),
+    ifthenelse(#1<0.6,0.8,
+    ifthenelse(#1<0.8,0.8*(1-3*((#1-0.6)/0.2)^2+2*((#1-0.6)/0.2)^3),0))))}}
+
+\newcommand{\exitaxes}[1]{%
+  \draw[-{Latex[length=2.5mm]},thick] (0,0)--(1.045,0)
+    node[below right] {$\epsilon$};
+  \draw[-{Latex[length=2.5mm]},thick] (0,0)--(0,1.10);
+  \node[rotate=90,anchor=south,font=\small] at (-.12,.55) {#1};
+  \foreach \x/\lab in {0/0,1/1} {
+    \draw (\x,.008)--(\x,-.008) node[below] {$\lab$};
+  }
+  \draw (.008,1)--(-.008,1) node[left] {$1$};
+}
+
+\begin{document}
+
+% Coset EXIT function.
+\begin{frame}[plain]
+\centering
+\begin{minipage}[c][0.15\paperheight][c]{0.95\paperwidth}
+\centering\small
+\only<1-2>{$C_2\subseteq C_1$, \quad $U=M+V$, \quad $V\sim\mathrm{Unif}(C_2)$}
+\only<3>{$H(M\mid Y_1)=H(U\mid Y_1)-H(V\mid Y_2)$}
+\only<4>{$h_{C_1/C_2}(\epsilon)=h_{C_1}(\epsilon)-h_{C_2}(\epsilon)$}
+\only<5>{$\displaystyle\int_0^1 h_{C_1/C_2}(\epsilon)\,d\epsilon=R_1-R_2$}
+\only<6>{Coset EXIT function}
+\end{minipage}
+\vspace{-2mm}
+\begin{tikzpicture}[x=7.2cm,y=4.3cm,>=Latex]
+  \path[use as bounding box] (-.18,-.22) rectangle (1.15,1.15);
+  \exitaxes{}
+
+  \only<1>{
+    \draw[curveblue,very thick]
+      plot[domain=0:1,samples=150] (\x,{exitupper(\x)});
+    \node[curveblue,font=\small,anchor=west] at (.56,.90) {$h_{C_1}(\epsilon)$};
+  }
+  \only<2>{
+    \draw[curveblue,very thick]
+      plot[domain=0:1,samples=150] (\x,{exitupper(\x)});
+    \draw[curvered,very thick]
+      plot[domain=0:1,samples=150] (\x,{exitlower(\x)});
+    \node[curveblue,font=\small,anchor=west] at (.50,.91) {$h_{C_1}(\epsilon)$};
+    \node[curvered,font=\small,anchor=west] at (.74,.39) {$h_{C_2}(\epsilon)$};
+  }
+  \only<3>{
+    \fill[curvepurple!18]
+      plot[domain=0:1,samples=150] (\x,{exitupper(\x)}) --
+      plot[domain=1:0,samples=150] (\x,{exitlower(\x)}) -- cycle;
+    \draw[curveblue,very thick]
+      plot[domain=0:1,samples=150] (\x,{exitupper(\x)});
+    \draw[curvered,very thick]
+      plot[domain=0:1,samples=150] (\x,{exitlower(\x)});
+    \draw[curvepurple,very thick,<->]
+      (.45,{exitlower(.45)})--(.45,{exitupper(.45)});
+    \node[curvepurple,font=\small,anchor=west] at (.47,.52)
+      {$h_{C_1/C_2}(\epsilon)$};
+  }
+  \only<4>{
+    \draw[curvepurple,very thick]
+      plot[domain=0:1,samples=150] (\x,{exitquot(\x)});
+  }
+  \only<5-6>{
+    \fill[curvepurple!20]
+      (0,0)--plot[domain=0:1,samples=150] (\x,{exitquot(\x)})--(1,0)--cycle;
+    \draw[curvepurple,very thick]
+      plot[domain=0:1,samples=150] (\x,{exitquot(\x)});
+  }
+  \only<5>{
+    \node[curvepurple,font=\large] at (.50,.29) {$R_1-R_2$};
+  }
+  \only<6>{
+    \draw[curvegray,densely dashed] (.28,0)--(.28,1.01);
+    \draw[curvegray,densely dashed] (.72,0)--(.72,1.01);
+    \node[font=\scriptsize,align=center] at (.13,.37) {$M$ known};
+    \node[font=\scriptsize,align=center] at (.50,.37) {$M$ being lost};
+    \node[font=\scriptsize,align=center] at (.87,.37) {$M$ hidden};
+  }
+\end{tikzpicture}
+\end{frame}
+
+% Design using the coset EXIT function.
+\begin{frame}[plain]
+\centering
+\begin{minipage}[c][0.15\paperheight][c]{0.95\paperwidth}
+\centering\small
+\only<1>{Coset coding on the erasure wiretap channel}
+\only<2>{Bob decodes $M$ \qquad Eve learns nothing about $M$}
+\only<3>{Same rate, sharper MAP thresholds}
+\only<4>{$R_1-R_2\leq\epsilon_2^*-\epsilon_1^*$}
+\only<5>{$h_{C_1/C_2}(\epsilon)=h_{C_2^\perp/C_1^\perp}(1-\epsilon)$}
+\end{minipage}
+\vspace{-2mm}
+\begin{tikzpicture}[x=7.2cm,y=4.3cm,>=Latex]
+  \path[use as bounding box] (-.18,-.22) rectangle (1.15,1.15);
+  \exitaxes{Coset EXIT}
+
+  \only<1-2>{
+    \fill[curveblue!15]
+      (0,0)--plot[domain=0:1,samples=160] (\x,{wireasym(\x)})--(1,0)--cycle;
+    \draw[curveblue,very thick]
+      plot[domain=0:1,samples=160] (\x,{wireasym(\x)});
+    \draw[curveblue,densely dashed] (.24,0)--(.24,1.01);
+    \draw[curveblue,densely dashed] (.83,0)--(.83,1.01);
+    \node[below,font=\scriptsize,curveblue] at (.24,0) {$\epsilon_1^*$};
+    \node[below,font=\scriptsize,curveblue] at (.83,0) {$\epsilon_2^*$};
+    \node[curveblue,font=\large] at (.55,.36) {$R_1-R_2$};
+  }
+  \only<2>{
+    \node[font=\scriptsize,align=center] at (.12,.53) {Bob};
+    \node[font=\scriptsize,align=center] at (.92,.53) {Eve};
+  }
+  \only<3-5>{
+    \draw[curveblue,thick,densely dashed]
+      plot[domain=0:1,samples=160] (\x,{wireasym(\x)});
+    \draw[curveblue,densely dashed] (.24,0)--(.24,1.01);
+    \draw[curveblue,densely dashed] (.83,0)--(.83,1.01);
+    \node[below,font=\scriptsize,curveblue] at (.24,0) {$\epsilon_1^*$};
+    \node[below,font=\scriptsize,curveblue] at (.83,0) {$\epsilon_2^*$};
+    \fill[curvered!18]
+      (0,0)--plot[domain=0:1,samples=160] (\x,{wireasymbetter(\x)})--(1,0)--cycle;
+    \draw[curvered,very thick]
+      plot[domain=0:1,samples=160] (\x,{wireasymbetter(\x)});
+    \draw[curvered,densely dashed] (.35,0)--(.35,1.01);
+    \draw[curvered,densely dashed] (.725,0)--(.725,1.01);
+    \node[above,font=\scriptsize,curvered] at (.35,1.01) {$\epsilon_1^{*\prime}$};
+    \node[above,font=\scriptsize,curvered] at (.725,1.01) {$\epsilon_2^{*\prime}$};
+  }
+  \only<3>{
+    \node[curveblue,font=\scriptsize,anchor=west] at (.02,.92) {smoother};
+    \node[curvered,font=\scriptsize,anchor=west] at (.43,.87) {sharper};
+  }
+  \only<4>{
+    \draw[<->,curveblue,thick] (.24,.22)--(.83,.22);
+    \node[curveblue,font=\scriptsize,fill=white,inner sep=1pt] at (.535,.22)
+      {$\epsilon_2^*-\epsilon_1^*$};
+    \draw[<->,curvered,thick] (.35,.48)--(.725,.48);
+    \node[curvered,font=\scriptsize,fill=white,inner sep=1pt] at (.5375,.48)
+      {$\epsilon_2^{*\prime}-\epsilon_1^{*\prime}$};
+  }
+  \only<5>{
+    \node[font=\scriptsize,align=center] at (.12,.53) {$C_1$};
+    \node[font=\scriptsize,align=center] at (.90,.53) {$C_2^\perp$};
+  }
+\end{tikzpicture}
+\end{frame}
+
+% Stabilizer symmetry and the quantum-erasure converse.
+\begin{frame}[plain]
+\centering
+\begin{minipage}[c][0.15\paperheight][c]{0.95\paperwidth}
+\centering\small
+\only<1>{$\mathcal S\subseteq\mathcal S^{\perp_s}$ \qquad
+  $\mathcal Q=\mathcal S^{\perp_s}/\mathcal S$}
+\only<2>{$\displaystyle\int_0^1h_{\mathcal Q}(\epsilon)\,d\epsilon=R$}
+\only<3>{$h_{\mathcal Q}(\epsilon)=h_{\mathcal Q}(1-\epsilon)$}
+\only<4>{$h_{\mathcal Q}=0$ on $[0,\epsilon^*]$ and $[1-\epsilon^*,1]$}
+\only<5>{Area $R$, \quad $0\leq h_{\mathcal Q}\leq1$}
+\only<6>{$R\leq1-2\epsilon^*$}
+\end{minipage}
+\vspace{-2mm}
+\begin{tikzpicture}[x=7.2cm,y=4.3cm,>=Latex]
+  \path[use as bounding box] (-.18,-.22) rectangle (1.15,1.15);
+  \exitaxes{$h_{\mathcal Q}(\epsilon)$}
+
+  \only<2>{
+    \fill[curveblue!20]
+      (0,0)--plot[domain=0:1,samples=160] (\x,{wirebase(\x)})--(1,0)--cycle;
+  }
+  \only<5-6>{
+    \fill[curvered!15] (.20,0) rectangle (.80,1);
+  }
+  \draw[curveblue,very thick]
+    plot[domain=0:1,samples=160] (\x,{wirebase(\x)});
+
+  \only<1>{
+    \node[curveblue,font=\small,anchor=west] at (.61,.74)
+      {$h_{\mathcal S^{\perp_s}/\mathcal S}(\epsilon)$};
+  }
+  \only<2>{
+    \node[curveblue,font=\large] at (.50,.32) {$R$};
+  }
+  \only<3-6>{
+    \draw[curvegray,densely dashed] (.50,0)--(.50,1.01);
+    \node[below,font=\scriptsize,curvegray] at (.50,0) {$\tfrac12$};
+  }
+  \only<3>{
+    \draw[curvepurple,densely dashed] (.30,.40)--(.70,.40);
+    \fill[curvepurple] (.30,.40) circle (2pt);
+    \fill[curvepurple] (.70,.40) circle (2pt);
+    \node[below,font=\scriptsize,curvepurple] at (.30,0) {$\epsilon$};
+    \node[below,font=\scriptsize,curvepurple] at (.70,0) {$1-\epsilon$};
+  }
+  \only<4-6>{
+    \draw[curvegray,densely dashed] (.20,0)--(.20,1.01);
+    \draw[curvegray,densely dashed] (.80,0)--(.80,1.01);
+    \node[below,font=\scriptsize,curvegray] at (.20,0) {$\epsilon^*$};
+    \node[below,font=\scriptsize,curvegray] at (.80,0) {$1-\epsilon^*$};
+  }
+  \only<4>{
+    \node[font=\scriptsize] at (.10,.24) {$h=0$};
+    \node[font=\scriptsize] at (.90,.24) {$h=0$};
+  }
+  \only<5-6>{
+    \draw[<->,curvered,thick] (.20,1.06)--(.80,1.06);
+    \node[curvered,font=\scriptsize,fill=white,inner sep=1pt] at (.50,1.06)
+      {$1-2\epsilon^*$};
+  }
+  \only<6>{
+    \node[curvered,font=\Large,fill=white,inner sep=2pt] at (.50,.38)
+      {$R\leq1-2\epsilon^*$};
+  }
+\end{tikzpicture}
+\end{frame}
+
+\end{document}
