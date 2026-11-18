@@ -44,6 +44,16 @@
     }
   ],
 
+  "awards": [
+    {
+      "title": "Student Best Paper Award",
+      "date": "2026-11-12",
+      "awarder": "2026 IEEE Information Theory Workshop (ITW)",
+      "url": "https://2026.ieee-itw.org/",
+      "summary": "Area Theorems for Quantum Error Correction"
+    }
+  ],
+
   "publications": [
     
   ],
