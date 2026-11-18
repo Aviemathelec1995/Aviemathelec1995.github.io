@@ -159,12 +159,22 @@ For the binary erasure channel, the <a href="https://doi.org/10.1109/TIT.2004.83
 <h3 style="clear: both; font-size: 1.2em; margin: 26px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--global-divider-color);">Coset EXIT Functions</h3>
 
 <p>
-In <a href="https://arxiv.org/abs/2610.22710">our work</a>, we first formulate a classical coset-entropy area theorem for nested binary linear codes \(C_2\subseteq C_1\). A message specifies a coset in \(C_1/C_2\), while encoder randomization selects a codeword from that coset. After the noisy observation, the conditional entropy of the coset index measures the remaining uncertainty about the message. Changing the erasure probability of coordinate \(j\) gives
+In <a href="https://arxiv.org/abs/2610.22710">our work</a>, we first formulate a classical coset-entropy area theorem for nested binary linear codes \(C_2\subseteq C_1\). For a binary linear code \(C\), let \(X\) be a uniformly distributed codeword transmitted through a binary erasure channel with erasure set \(E\) and output \(Y\). The normalized EXIT function of \(C\) is
 \[
-\frac{\partial}{\partial\epsilon_j}H(M\mid Y)
+h_C(\epsilon)
+=\frac{1}{N}\sum_{j=1}^{N}H(X_j\mid E_{\sim j},Y_{\sim j})
+=\frac{1}{N}\frac{d}{d\epsilon}H(X\mid E,Y),
+\]
+where \(E_{\sim j}\) and \(Y_{\sim j}\) contain the erasure pattern and channel outputs away from coordinate \(j\). Thus, \(h_C(\epsilon)\) is the average uncertainty about one codeword coordinate after observing all other coordinates.
+</p>
+
+<p>
+For the nested pair, a message \(M\) specifies a coset in \(C_1/C_2\), while an independent random vector \(V\), uniform on \(C_2\), selects a codeword within that coset. The transmitted vector is \(U=M+V\), which is uniform on \(C_1\). After the noisy observation, \(H(M\mid E,Y)\) measures the remaining uncertainty about the message. Changing the erasure probability of coordinate \(j\) gives
+\[
+\frac{\partial}{\partial\epsilon_j}H(M\mid E,Y)
 =I(M;U_j\mid E_{\sim j},Y_{\sim j}).
 \]
-The derivative with respect to the channel parameter defines the coset EXIT function
+The normalized derivative of this coset entropy defines the coset EXIT function
 \[
 h_{C_1/C_2}(\epsilon)
 =h_{C_1}(\epsilon)-h_{C_2}(\epsilon),
